@@ -18,8 +18,16 @@ body {
   background-color: var(--clr-primary-2);
 }
 
+a {
+  color: unset;
+}
+
 .btn {
   cursor: pointer;
+}
+
+.code {
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .App {
@@ -169,4 +177,31 @@ body {
   font-size: 1.2rem;
   border-bottom: 1px solid var(--clr-primary-3);
   cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 0.75rem;
+  padding-bottom: .2em;
+}
+
+.footer__made-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__made-by .bi {
+  margin: 0 .2em;
+}
+
+.footer__link {
+  display: flex;
+  align-items: center;
+}
+
+.footer__build-with {
+  font-weight: bold;
 }
