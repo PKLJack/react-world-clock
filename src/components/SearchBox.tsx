@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 import { Action as TimezonesAction } from "../reducers/timezoneReducer"
 import { ALL_TIMEZONES } from "../data"
@@ -9,7 +9,13 @@ type Props = {
 
 const SearchBox: React.FC<Props> = (props) => {
   const [pattern, setPattern] = useState("")
+  const inputRef = useRef<HTMLInputElement | null>(null)
 
+  useEffect(() => {
+    inputRef.current?.focus()
+  }, [])
+  
+  
   const handleClick = (e: any, timezone: string) => {
     console.log(timezone)
     props.timezonesDispatch({ type: "ADD", timezone: timezone })
@@ -36,6 +42,7 @@ const SearchBox: React.FC<Props> = (props) => {
         type="text"
         className="search__bar"
         value={pattern}
+        ref={inputRef}
         onChange={(e) => setPattern(e.target.value)}
       />
       <div className="results__box">
