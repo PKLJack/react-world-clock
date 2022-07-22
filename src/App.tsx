@@ -1,5 +1,5 @@
 import { DateTime } from "luxon"
-import React, { useState, useReducer, useEffect, useId } from "react"
+import React, { useState, useReducer, useEffect } from "react"
 import { ReactSVG } from "react-svg"
 
 import "./App.css"
@@ -13,6 +13,7 @@ import {
 } from "./reducers/timezoneReducer"
 import UpArrow from "./images/chevron-compact-up.svg"
 import DownArrow from "./images/chevron-compact-down.svg"
+import Footer from "./components/Footer"
 
 function App() {
   const [time, timeDispatch] = useReducer(timeReducer, timeInitialState)
@@ -23,13 +24,13 @@ function App() {
   const [showSearch, setShowSearch] = useState(false)
 
   useEffect(() => {
-    console.log("effect start")
+    // console.log("effect start")
     const timerId = window.setInterval(() => {
       timeDispatch({ type: "SET_NOW", now: DateTime.now() })
     }, 1000)
 
     return () => {
-      console.log("effect end")
+      // console.log("effect end")
       window.clearInterval(timerId)
     }
   }, [])
@@ -115,6 +116,7 @@ function App() {
           handleReset={handleSliderReset}
           dispatch={timeDispatch}
         />
+        <Footer />
       </div>
       <div style={{ height: "10rem" }}></div>
     </div>
