@@ -1,7 +1,5 @@
 // @ts-expect-error
-let ALL_TIMEZONES: string[] = Intl.supportedValuesOf("timeZone")
-
-ALL_TIMEZONES = ALL_TIMEZONES
+const ALL_TIMEZONES: string[] = Intl.supportedValuesOf("timeZone")
 
 const fetchTimeZones = () => {
   console.log("fetch timezones")
